@@ -1,15 +1,24 @@
-package quadrado4;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication1;
 
-public class QuadradoMagicoNormal {
+/**
+ *
+ * @author barbalho12
+ */
+public class JavaApplication1 {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 		
 		long start, elapsed;
 		start = System.currentTimeMillis();
 		
 		int [][] m = new int[4][4];
 		int [] a = new int[8];
-		
+		int cont=0;
 // 		boolean l1,l2,l3,l4,c1,c2,c3,c4,d1,d2;
 		
 		//Iteração TOTAL
@@ -67,15 +76,15 @@ public class QuadradoMagicoNormal {
 				m[1][2]<=16 && m[1][2]>0 &&
 				m[2][0]<=16 && m[2][0]>0 &&
 				m[2][0]<=16 && m[2][0]>0))
-// 					a[0]<=16 && a[0]>0 &&
-// 					a[1]<=16 && a[1]>0 &&
-// 					a[2]<=16 && a[2]>0 && 
-// 					a[3]<=16 && a[3]>0 && 
-// 					a[4]<=16 && a[4]>0 && 
-// 					a[5]<=16 && a[5]>0 && 
-// 					a[6]<=16 && a[6]>0 && 
-// 					a[7]<=16 && a[7]>0)
 				continue;
+                        else{
+                            cont++;
+                            System.out.println(m[0][0]+" "+m[0][1]+" "+m[0][2]+" "+m[0][3]+"\n"
+				+m[1][0]+" "+m[1][1]+" "+m[1][2]+" "+a[0]+"\n"
+				+m[2][0]+" "+a[1]+" "+a[2]+" "+a[3]+"\n"
+				+a[4]+" "+a[5]+" "+a[6]+" "+a[7]); 
+                            System.out.println("-------"); 
+                        }
 					
 					
 			//Teste se é quadrado mágico
@@ -86,6 +95,7 @@ public class QuadradoMagicoNormal {
 //				m[2][0] a[1]    a[2]    a[3]
 //				a[4]    a[5]    a[6]    a[7]
 // 			}
+                        
 			
 		}}}}}}}}
 		
@@ -94,5 +104,5 @@ public class QuadradoMagicoNormal {
 		System.out.println((elapsed/1000.0)+" segundos");
 
 	}
-
+    
 }
