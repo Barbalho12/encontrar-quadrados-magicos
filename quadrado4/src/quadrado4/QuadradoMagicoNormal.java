@@ -73,8 +73,8 @@ public class QuadradoMagicoNormal {
 				
 				boolean repetido = false;
 				
-				for (int i = 0, k=0; i < 4; i++) {
-					for (int j = 0; j < 4; j++, k++) {
+				for (int i = 0; i < 4; i++) {
+					for (int j = 0; j < 4; j++) {
 						vetor[m[i][j]-1]= 1;
 					}
 				}
@@ -100,49 +100,95 @@ public class QuadradoMagicoNormal {
 			removido[i] = false;
 		}
 		
-//		for (int h = 0; h < qm.size(); h++) {
-//			for (int l = 0; l < qm.size(); l++) {
-//				if(h==l || removido[h]) continue;
-//				
-//				boolean rodado1 = true;
-//				boolean rodado2 = true;
-//				boolean rodado3 = true;
-//				
-//				for (int i = 0; i < 4; i++) {
-//					for (int j = 0; j < 4; j++) {
-//						if(qm.get(h).get((4-j)-1,i) != qm.get(l).get(i,j)){
-//							rodado1 = false;
-//							break;
-//						}
-//					}
-//					if(rodado1) break;
-//				}
-//				for (int i = 0; i < 4; i++) {
-//					for (int j = 0; j < 4; j++) {
-//						
-//						if(qm.get(h).get((4-j)-1, i) != qm.get(l).get(j,(4-i)-1)){
-//							rodado2 = false;
-//							break;
-//						}
-//					}
-//					if(rodado2) break;
-//				}
-//				for (int i = 0; i < 4; i++) {
-//					for (int j = 0; j < 4; j++) {
-//					
-//						if(qm.get(h).get((4-j)-1, i) != qm.get(l).get((4-i)-1,(4-j)-1)){
-//							rodado3 = false;
-//							break;
-//						}
-//					}
-//					if(rodado3) break;
-//				}
-//				if(rodado1 || rodado2 || rodado3){
-//					removido[l] = true;
-//				}
-//			}
-//		}
 		
+		boolean rodado1,rodado2,rodado3,espelhoL,espelhoV,espelhoD,espelhoD2;
+		
+		for (int h = 0; h < qm.size(); h++) {
+			for (int l = 0; l < qm.size(); l++) {
+				if(h==l || removido[h]) continue;
+				
+				rodado1 = rodado2 = rodado3 = true;
+				espelhoL = espelhoV = espelhoD = espelhoD2 = true;
+
+
+				for (int i = 0; i < 4; i++) {
+					for (int j = 0; j < 4; j++) {
+						if(qm.get(h).get(i,j) != qm.get(l).get(j,(4-i)-1)){
+							rodado1 = false;
+							break;
+						}
+					}
+					if(!rodado1) break;
+				}
+				
+				for (int i = 0; i < 4; i++) {
+					for (int j = 0; j < 4; j++) {
+						if(qm.get(h).get(i,j) != qm.get(l).get((4-i)-1,(4-j)-1)){
+							rodado2 = false;
+							break;
+						}
+					}
+					if(!rodado2) break;
+				}
+				
+				for (int i = 0; i < 4; i++) {
+					for (int j = 0; j < 4; j++) {
+						if(qm.get(h).get(i,j) != qm.get(l).get((4-i)-1,i)){
+							rodado3 = false;
+							break;
+						}
+					}
+					if(!rodado3) break;
+				}
+				
+				for (int i = 0; i < 4; i++) {
+					for (int j = 0; j < 4; j++) {
+						
+						if(qm.get(h).get(i, j) != qm.get(l).get(i,(4-j)-1)){
+							espelhoL = false;
+							break;
+						}
+					}
+					if(!espelhoL) break;
+				}
+				for (int i = 0; i < 4; i++) {
+					for (int j = 0; j < 4; j++) {
+					
+						if(qm.get(h).get(i, j) != qm.get(l).get((4-i-1),j)){
+							espelhoV = false;
+							break;
+						}
+					}
+					if(!espelhoV) break;
+				}
+				
+				for (int i = 0; i < 4; i++) {
+					for (int j = 0; j < 4; j++) {
+					
+						if(qm.get(h).get(i, j) != qm.get(l).get((4-j-1),(4-i-1))){
+							espelhoD = false;
+							break;
+						}
+					}
+					if(!espelhoD) break;
+				}
+				
+				for (int i = 0; i < 4; i++) {
+					for (int j = 0; j < 4; j++) {
+					
+						if(qm.get(h).get(i, j) != qm.get(l).get(j,i)){
+							espelhoD2 = false;
+							break;
+						}
+					}
+					if(!espelhoD2) break;
+				}
+				
+				if(rodado1 || rodado2 || rodado3 || espelhoL || espelhoV || espelhoD || espelhoD2){
+					removido[l] = true;
+				}
+			}
+		}
 
 		for (int i = removido.length-1; i >= 0; i--) {
 			if(removido[i]){
