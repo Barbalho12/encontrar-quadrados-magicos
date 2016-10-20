@@ -48,8 +48,4 @@ public class M {
 		this.m = m;
 	}
 
-	
-	
-	
-
 }
