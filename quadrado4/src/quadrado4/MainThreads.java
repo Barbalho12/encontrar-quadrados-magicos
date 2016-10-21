@@ -1,11 +1,9 @@
 package quadrado4;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import quadrado4.QuadradoMagicoNormal.M;
+//import quadrado4.QuadradoMagicoNormal.M;
 
 public class MainThreads {
 
@@ -13,15 +11,22 @@ public class MainThreads {
 		long start, elapsed;
 		start = System.currentTimeMillis();
 		
-		QuadradoMagico qm1 = new QuadradoMagico("t1", 1, 8);
-		QuadradoMagico qm2 = new QuadradoMagico("t2",9, 16);
+		QuadradoMagicoThread qm1 = new QuadradoMagicoThread("t1", 1, 4);
+		QuadradoMagicoThread qm2 = new QuadradoMagicoThread("t2",5, 8);
+		QuadradoMagicoThread qm3 = new QuadradoMagicoThread("t3", 9, 12);
+		QuadradoMagicoThread qm4 = new QuadradoMagicoThread("t4",13, 16);
+
 		
 		qm1.start();
 		qm2.start();
-		while(qm1.isAlive() && qm2.isAlive());
+		qm3.start();
+		qm4.start();
+		while(qm1.isAlive() && qm2.isAlive() && qm3.isAlive() && qm4.isAlive());
 		List<M> qm = new ArrayList<M>();
 		qm.addAll(qm1.getQm());
 		qm.addAll(qm2.getQm());
+		qm.addAll(qm3.getQm());
+		qm.addAll(qm4.getQm());
 		
 		boolean[] removido = new boolean[qm.size()];
 
@@ -92,4 +97,8 @@ public class MainThreads {
 		System.out.println((elapsed / 1000.0) + " segundos");
 	
 	}
+	
+	
+	
+	
 }

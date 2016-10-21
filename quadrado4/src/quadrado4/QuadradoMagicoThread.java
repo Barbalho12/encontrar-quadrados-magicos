@@ -3,11 +3,10 @@ package quadrado4;
 import java.util.ArrayList;
 import java.util.List;
 
-import quadrado4.QuadradoMagicoNormal.M;
 
-public class QuadradoMagico extends Thread {
+public class QuadradoMagicoThread extends Thread {
 	
-	public QuadradoMagico(String id,int x, int y ) {
+	public QuadradoMagicoThread(String id,int x, int y ) {
 		super(id);
 		this.x = x;
 		this.y = y;
