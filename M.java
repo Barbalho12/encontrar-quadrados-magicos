@@ -1,4 +1,3 @@
-package quadrado4;
 
 public class M {
 	

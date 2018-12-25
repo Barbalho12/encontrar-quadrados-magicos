@@ -1,9 +1,6 @@
-package quadrado4;
 
 import java.util.ArrayList;
 import java.util.List;
-
-//import quadrado4.QuadradoMagicoNormal.M;
 
 public class MainThreads {
 
