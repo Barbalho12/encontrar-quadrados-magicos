@@ -1,7 +1,5 @@
-
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class MagicSquareThread extends Thread {
 	
@@ -28,12 +26,9 @@ public class MagicSquareThread extends Thread {
 		
 		int[] a = new int[8];
 
-		
-
 		int[] vetor = new int[16];
 		
-		
-		/*Geração dos quadrados mágicos, o resultado são quadrados mágicos (com rotações e reflexões) */
+		/*Generation of the magic squares, the result is magic squares (with rotations and reflections)*/
 		for (a[0] = x; a[0] <= y; a[0]++) {
 			
 			for (a[1] = 1; a[1] <= 16; a[1]++) {
@@ -113,7 +108,6 @@ public class MagicSquareThread extends Thread {
 
 											if (!repetido)
 												qm.add(new M(m));
-
 										}
 									}
 								}
@@ -124,5 +118,4 @@ public class MagicSquareThread extends Thread {
 			}
 		}
 	}
-
 }

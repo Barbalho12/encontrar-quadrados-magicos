@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +17,7 @@ public class MagicSquareNormal {
 		int[] vetor = new int[16];
 
 		
-		/*Geração dos quadrados mágicos, o resultado são quadrados mágicos (com rotações e reflexões) */
+		/*Generation of the magic squares, the result is magic squares (with rotations and reflections) */
 		for (a[0] = 1; a[0] <= 16; a[0]++) {
 			
 			for (a[1] = 1; a[1] <= 16; a[1]++) {
@@ -111,14 +110,14 @@ public class MagicSquareNormal {
 
 		boolean[] removido = new boolean[qm.size()];
 
-		/*Inicializa o vetor que irá definir as matrizes a serem removidas*/
+		/*Initializes the vector that will define the matrices to be removed*/
 		for (int i = 0; i < removido.length; i++) {
 			removido[i] = false;
 		}
 
 		boolean rodado1, rodado2, rodado3, espelhoL, espelhoV, espelhoD, espelhoD2;
 
-		/*Marca as matrizes que são rotações ou reflexões, para serem removidas posetiormente, dexando apenas uma de cada*/
+		/*Mark the matrices that are rotations or reflections, to be removed suitably, leaving only one of each*/
 		for (int h = 0; h < qm.size(); h++) {
 			for (int l = 0; l < qm.size(); l++) {
 				if (h == l || removido[h])
@@ -159,14 +158,14 @@ public class MagicSquareNormal {
 			}
 		}
 
-		/*Remove rotações e reflexões*/
+		/*Removes rotations and reflections*/
 		for (int i = removido.length - 1; i >= 0; i--) {
 			if (removido[i]) {
 				qm.remove(i);
 			}
 		}
 
-		/*Imprime todas as matrizes*/
+		/*Prints all matrices*/
 		for (M mi : qm) {
 			mi.print();
 			System.out.println("---------");
@@ -179,14 +178,11 @@ public class MagicSquareNormal {
 
 	}
 
-
-
 	static class M {
 		
 		private int [][]m;
 	
 		public M(int length) {
-			
 			this.setM(new int[length][length]);
 			
 		}

@@ -13,7 +13,6 @@ public class MainThreads {
 		MagicSquareThread qm3 = new MagicSquareThread("t3", 9, 12);
 		MagicSquareThread qm4 = new MagicSquareThread("t4",13, 16);
 
-		
 		qm1.start();
 		qm2.start();
 		qm3.start();
@@ -27,14 +26,14 @@ public class MainThreads {
 		
 		boolean[] removido = new boolean[qm.size()];
 
-		/*Inicializa o vetor que irá definir as matrizes a serem removidas*/
+		/*Initializes the vector that will define the matrices to be removed*/
 		for (int i = 0; i < removido.length; i++) {
 			removido[i] = false;
 		}
 
 		boolean rodado1, rodado2, rodado3, espelhoL, espelhoV, espelhoD, espelhoD2;
 
-		/*Marca as matrizes que são rotações ou reflexões, para serem removidas posetiormente, dexando apenas uma de cada*/
+		/*Mark the matrices that are rotations or reflections, to be removed suitably, leaving only one of each*/
 		for (int h = 0; h < qm.size(); h++) {
 			for (int l = 0; l < qm.size(); l++) {
 				if (h == l || removido[h])
@@ -75,14 +74,14 @@ public class MainThreads {
 			}
 		}
 
-		/*Remove rotações e reflexões*/
+		/*Removes rotations and reflections*/
 		for (int i = removido.length - 1; i >= 0; i--) {
 			if (removido[i]) {
 				qm.remove(i);
 			}
 		}
 
-		/*Imprime todas as matrizes*/
+		/*Prints all matrices*/
 		for (M mi : qm) {
 			mi.print();
 			System.out.println("---------");
