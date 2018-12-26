@@ -5,8 +5,8 @@
 The program was developed in Java and has two approaches. The first is composed of two classes contained in a single file, to facilitate execution. To execute it is necessary to access the directory of the class and execute:
 
 ```bash
-javac -encoding ISO-8859-1 QuadradoMagicoNormal.java
-java QuadradoMagicoNormal
+javac -encoding ISO-8859-1 MagicSquareNormal.java
+java MagicSquareNormal
 ```
 
 ### Multi Threads

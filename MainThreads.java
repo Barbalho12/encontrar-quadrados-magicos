@@ -8,10 +8,10 @@ public class MainThreads {
 		long start, elapsed;
 		start = System.currentTimeMillis();
 		
-		QuadradoMagicoThread qm1 = new QuadradoMagicoThread("t1", 1, 4);
-		QuadradoMagicoThread qm2 = new QuadradoMagicoThread("t2",5, 8);
-		QuadradoMagicoThread qm3 = new QuadradoMagicoThread("t3", 9, 12);
-		QuadradoMagicoThread qm4 = new QuadradoMagicoThread("t4",13, 16);
+		MagicSquareThread qm1 = new MagicSquareThread("t1", 1, 4);
+		MagicSquareThread qm2 = new MagicSquareThread("t2",5, 8);
+		MagicSquareThread qm3 = new MagicSquareThread("t3", 9, 12);
+		MagicSquareThread qm4 = new MagicSquareThread("t4",13, 16);
 
 		
 		qm1.start();
